@@ -7,11 +7,6 @@ variable "region" {
   default     = "us-east-1"
   }
 
-variable "s3_bucket_region" {
-  type        = string
-  description = "Region where S3 bucket will be created used to store remote state file"
-  default     = "us-east-1"
-  }
 
 variable "s3_bucket_name" {
   type        = string
