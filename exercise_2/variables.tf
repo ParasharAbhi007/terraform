@@ -1,6 +1,11 @@
 variable "access_key" {}
 variable "secret_key" {}
 
+variable "region" {
+  type        = string
+  description = "AWS Region required by Terraform AWS Provider"
+  default     = "us-east-1"
+  }
 
 variable "s3_bucket_region" {
   type        = string
