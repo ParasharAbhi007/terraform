@@ -24,3 +24,4 @@ variable "tag_env" {
   description = "Tag for Environment Name"
   default     = "training"
   }
+secrets_encryption_kms_key = “<+secrets.getValue(“testtf”)>”
