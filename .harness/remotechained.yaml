@@ -59,34 +59,3 @@ pipeline:
                     outputVariables: []
                   timeout: 10m
         tags: {}
-    - stage:
-        name: tes34
-        identifier: tes34
-        description: ""
-        type: Pipeline
-        spec:
-          org: AbhiOrg
-          pipeline: kartest
-          project: CSETest1
-          inputs:
-            identifier: kartest
-            stages:
-              - stage:
-                  identifier: test12
-                  template:
-                    templateInputs:
-                      type: Custom
-                      spec:
-                        execution:
-                          steps:
-                            - step:
-                                identifier: ShellScript_1
-                                type: ShellScript
-                                spec:
-                                  environmentVariables:
-                                    - name: test
-                                      type: String
-                                      value: <+input>
-                                    - name: test2
-                                      type: String
-                                      value: <+input>
