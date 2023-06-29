@@ -54,7 +54,7 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: echo v
+                        script: echo ve
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
