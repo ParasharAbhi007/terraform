@@ -36,6 +36,7 @@ pipeline:
                                     - name: test2
                                       type: String
                                       value: <+input>
+          outputs: []
     - stage:
         name: test12
         identifier: test12
@@ -54,8 +55,41 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: echo v
+                        script: echo ve
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
+        tags: {}
+    - stage:
+        name: test34
+        identifier: test3
+        description: ""
+        type: Pipeline
+        spec:
+          org: AbhiOrg
+          pipeline: kartest
+          project: CSETest1
+          inputs:
+            identifier: kartest
+            stages:
+              - stage:
+                  identifier: test12
+                  template:
+                    templateInputs:
+                      type: Custom
+                      spec:
+                        execution:
+                          steps:
+                            - step:
+                                identifier: ShellScript_1
+                                type: ShellScript
+                                spec:
+                                  environmentVariables:
+                                    - name: test
+                                      type: String
+                                      value: <+input>
+                                    - name: test2
+                                      type: String
+                                      value: <+input>
+          outputs: []
         tags: {}
