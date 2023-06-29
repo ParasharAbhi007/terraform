@@ -61,7 +61,7 @@ pipeline:
                   timeout: 10m
         tags: {}
     - stage:
-        name: test3
+        name: test33
         identifier: test3
         description: ""
         type: Pipeline
@@ -91,3 +91,4 @@ pipeline:
                                     - name: test2
                                       type: String
                                       value: <+input>
+        tags: {}
