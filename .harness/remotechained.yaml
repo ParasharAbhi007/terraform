@@ -36,3 +36,50 @@ pipeline:
                                     - name: test2
                                       type: String
                                       value: <+input>
+    - stage:
+        name: helm
+        identifier: helm
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: NativeHelm
+          service:
+            serviceRef: helmservice
+            serviceInputs:
+              serviceDefinition:
+                type: NativeHelm
+                spec:
+                  manifests:
+                    - manifest:
+                        identifier: snoui
+                        type: HelmChart
+                        spec:
+                          chartVersion: <+input>
+          environment:
+            environmentRef: ECS_INFRA
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: helm
+          execution:
+            steps:
+              - step:
+                  name: Helm Deployment
+                  identifier: helmDeployment
+                  type: HelmDeploy
+                  timeout: 10m
+                  spec:
+                    skipDryRun: false
+            rollbackSteps:
+              - step:
+                  name: Helm Rollback
+                  identifier: helmRollback
+                  type: HelmRollback
+                  timeout: 10m
+                  spec: {}
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
