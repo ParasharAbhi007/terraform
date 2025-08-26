@@ -21,7 +21,7 @@ resource "aws_s3_bucket" "tf_root_module_bucket" {
   }
 
   tags = {
-    Name        = lijo
-    Environment = env
+    Name        = "lijo"
+    Environment = "env"
   }
 }
