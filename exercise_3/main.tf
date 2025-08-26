@@ -6,14 +6,14 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "lijo"        # bucket for remote state
+    bucket = "lijo-lab"        # bucket for remote state
     key    = "exercise_3/terraform.tfstate"  # required path inside the bucket
     region = "us-east-1"
   }
 }
 
 resource "aws_s3_bucket" "tf_root_module_bucket" {
-  bucket = "lijo"
+  bucket = "lijo-lab"
   acl    = "private"
 
   versioning {
