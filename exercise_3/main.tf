@@ -1,19 +1,19 @@
 provider "aws" {
   access_key = var.access_key
   secret_key = var.secret_key
-  region     = var.region
+  region     = us-east-1
 }
 
 terraform {
   backend "s3" {
-    bucket = var.s3_bucket_name        # bucket for remote state
+    bucket = lijo        # bucket for remote state
     key    = "exercise_3/terraform.tfstate"  # required path inside the bucket
-    region = var.s3_bucket_region
+    region = us-east-1
   }
 }
 
 resource "aws_s3_bucket" "tf_root_module_bucket" {
-  bucket = var.s3_bucket_name
+  bucket = lijo
   acl    = "private"
 
   versioning {
@@ -21,7 +21,7 @@ resource "aws_s3_bucket" "tf_root_module_bucket" {
   }
 
   tags = {
-    Name        = var.s3_bucket_name
-    Environment = var.tag_env
+    Name        = lijo
+    Environment = env
   }
 }
