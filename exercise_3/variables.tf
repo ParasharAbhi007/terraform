@@ -1,12 +1,12 @@
 variable "access_key" {
 type        = string
   description = "AWS Region required by Terraform AWS Provider"
-  default     = "<+secrets.getValue("account.accesskey")>"
+  default     = "<+secrets.getValue(\"account.accesskey\")>"
 }
 variable "secret_key" {
 type        = string
   description = "AWS Region required by Terraform AWS Provider"
-  default     = "<+secrets.getValue("account.secretkey")>"
+  default     = "<+secrets.getValue(\"account.secretkey\")>"
 }
 
 variable "region" {
